@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1555459621 source:/home/pi/csci212/Go Fish/askcards_auto.s
+
+1555467507 source:/home/pi/csci212/Go Fish/askcards_man.s
+
+1555459621 source:/home/pi/csci212/Go Fish/draw.s
+
+1555466837 source:/home/pi/csci212/Go Fish/main.c
+	<stdio.h>
+
+1555459621 source:/home/pi/csci212/Go Fish/dealcards.s
+
+1555459621 source:/home/pi/csci212/Go Fish/modulo.s
+
+1555459621 source:/home/pi/csci212/Go Fish/shuffle.s
+
+1556950678 source:/home/pi/csci212/Go_Fish/askcards_auto.s
+
+1555459621 source:/home/pi/csci212/Go_Fish/dealcards.s
+
+1556946840 source:/home/pi/csci212/Go_Fish/draw.s
+
+1556951056 source:/home/pi/csci212/Go_Fish/main.c
+	<stdio.h>
+
+1556946840 source:/home/pi/csci212/Go_Fish/modulo.s
+
+1555459621 source:/home/pi/csci212/Go_Fish/shuffle.s
+
+1556950678 source:/home/pi/csci212/Go_Fish/askcards_man.s
+
+1556948635 source:/home/pi/csci212/Go_Fish/check_winner.s
+
