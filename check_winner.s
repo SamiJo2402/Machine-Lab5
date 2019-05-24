@@ -1,9 +1,11 @@
+@author: Mary Kovic
+
 .cpu cortex-a53
 .fpu neon-fp-armv8
 
 .data
-header: .asciz "\n====================== GO FISH CARD GAME CURRENT RESULT ========================\n\n"
-score: .asciz "Player's score: %d\nCPU's score: %d\n\n"
+header: .asciz "\n====================== GO FISH CARD GAME CURRENT RESULT ========================(Change line)\n\n"
+score: .asciz "Player's score: %d\nCPU's score: %d(Change line)\n\n"
 
 .text
 
@@ -14,41 +16,35 @@ score: .asciz "Player's score: %d\nCPU's score: %d\n\n"
 check_winner:
     push {fp, lr}
     add fp, sp, #4
-
-    @ r0 = player array
-    @ r1 = cpu array
-
     push {r5, r6, r7, r8, r9}
 
     mov r4, r0
     mov r5, r1
-    ldr r8, [r0]                @ player's card count
-    ldr r9, [r1]                @ cpu's card count
+    ldr r8, [r0]                
+    ldr r9, [r1]               
 
     mov r0, #4
     mov r1, #14
     mul r0, r0, r1
     add r0, r0, r4
-    ldr r6, [r0]                @ retrieve player's score and store it to r6
-
+    ldr r6, [r0]               
     mov r0, #4
     mov r1, #14
     mul r0, r0, r1
     add r0, r0, r5
-    ldr r7, [r0]                @ retrieve cpu's score and store it to r7
-
+    ldr r7, [r0]                
     ldr r0, =header
-    bl printf                   @ prints header
+    bl printf                  
 
     mov r1, r6
     mov r2, r7
-    ldr r0, =score              @ prints score
+    ldr r0, =score              
     bl printf
 
-    cmp r6, #13                 @ check if player has greater than 13 points
+    cmp r6, #13               
     bgt player_won
 
-    cmp r7, #13                 @ check if cpu has greater than 13 points
+    cmp r7, #13                
     bgt cpu_won
 
     cmp r8,#0
@@ -57,7 +53,7 @@ check_winner:
     cmp r9,#0
     beq finish_game2
 
-    mov r0, #0                  @ otherwise return 0, which means continue playing
+    mov r0, #0                  
     b check_winner_done
 
 finish_game:
@@ -75,13 +71,13 @@ finish_game2:
     b check_winner_done
 
 game_done:
-    cmp r6, r7                  @ check if player won
+    cmp r6, r7                  
     bgt player_won
 
-    cmp r6, r7                  @ check if cpu won
+    cmp r6, r7                  
     blt cpu_won
 
-    b tie                       @ otherwise, it's a tie
+    b tie                       
 
 player_won:
     mov r0, #1
@@ -96,6 +92,6 @@ tie:
 
 check_winner_done:
     pop {r9, r8, r7, r6, r5}
-    sub sp, fp, #4              @ place sp at -8 on stack
-    pop {fp, lr}                @ pop fp (calling function), pop lr, set sp at 0 on stack
-    bx lr                       @ branch back to calling function
+    sub sp, fp, #4              
+    pop {fp, lr}                
+    bx lr                      

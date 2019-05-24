@@ -1,7 +1,4 @@
-//
-// Author: Dan Mendoza
-// Palomar ID: 006798227
-// Description: This code is the main function for Go Fish Application game
+/* @author Mary Kovic */
 
 #include <stdio.h>
 
@@ -16,7 +13,7 @@ void displayPlayerHand(int arr[]);
 int main(int argc, char *argv[])
 {
     int winner;
-    int player[15],cpu[15];             //index 0 to track card count, 1-13 to track pairs, index 14 is to track score
+    int player[15],cpu[15];             
     int i = 0;
 
     for (i = 0; i < 15; ++i) {
@@ -25,46 +22,44 @@ int main(int argc, char *argv[])
     }
     FILE * fptr;
 
-    if (argc > 1)                       // if file name indicated in main parameters
+    if (argc > 1)                      
     {
         fptr = fopen(argv[1], "w");
     }
-    else                                // if file name not indicated in main parameters
+    else                               
     {
         fptr = fopen("deck.dat", "w");
     }
 
-    shuffle(fptr);                      // place random number between 0-13 for card rank and place into file 52 times to represent a card deck
+    shuffle(fptr);                     
 
-    if (argc > 1)                       // if file name indicated in main parameters
+    if (argc > 1)                      
     {
         fptr = fopen(argv[1], "r");
     }
-    else                                // if file name not indicated in main parameters
+    else                                
     {
         fptr = fopen("deck.dat", "r");
     }
 
 
-    dealcards(fptr, player);            // deal 5 cards to player
-    player[0] = 5;                      // set total card count for player to 5
+    dealcards(fptr, player);           
+    player[0] = 5;                      
 
-    dealcards(fptr, cpu);               // deal 5 cards to cpu
-    cpu[0] = 5;                         // set total card count for cpu to 5
+    dealcards(fptr, cpu);              
+    cpu[0] = 5;                         
 
-    printf("======================== WELECOME TO GO FISH CARD GAME =========================\n\n");
-    printf("Note: Jack, Queen, and King are equivalent to 11,12, adn 13.\n\n");
+    printf("======================== WELECOME TO GO FISH CARD GAME =========================\n\n(Change line)");
+    printf("Note: Jack, Queen, and King are equivalent to 11,12, adn 13.\n\n(Change line)");
 
     int nextTurn = 0;
     winner = 0;
 
-    // Play Go Fish
-    while(winner == 0)                            // while loop runs until winner is declared which breaks the while loop
+    while(winner == 0)                         
     {
         winner = check_winner(player, cpu);
 
         displayPlayerHand(player);
-        //displayPlayerHand(cpu);
 
         printf("\n\n");
 
@@ -72,17 +67,17 @@ int main(int argc, char *argv[])
         {
             case 1:
             {
-                printf("\nCongratulations, you won the game!\n\n");
+                printf("\nCongratulations, you won the game!(Change line)\n\n");
                 break;
             }
             case 2:
             {
-                printf("\nSorry, you lost. The CPU  won the game.\n\n");
+                printf("\nSorry, you lost. The CPU  won the game.(Change line)\n\n");
                 break;
             }
             case 3:
             {
-                printf("\nYou and CPU are draw.\n\n");
+                printf("\nYou and CPU are draw.(Change line)\n\n");
                 break;
             }
 
@@ -106,18 +101,17 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// This function is to display what is on player's hand
 void displayPlayerHand(int arr[])
 {
-        printf("\ncard option:  ");
+        printf("\ncard option:  (Change line)");
         for (int i = 1; i < 14; ++i) {
-            printf("%3d ", i);
+            printf("%3d (Change line)", i);
         }
         printf("\n");
 
-        printf("player deck:  ");
+        printf("player deck:  (Change line)");
         for (int i = 1; i < 14; ++i) {
-            printf("%3d ", arr[i]);
+            printf("%3d (Change line)", arr[i]);
         }
         printf("\n");
 

@@ -1,10 +1,4 @@
-@
-@ Student: Dan Mendoza
-@ Palomar ID: 006798227
-@ Class: CSCI 212
-@ Lab 5 - Go Fish Game
-@
-@ shuffle.s
+@author: Mary Kovic
 
 .cpu cortex-a53
 .fpu neon-fp-armv8
@@ -23,18 +17,18 @@ shuffle:
     sub sp, sp, #4
     str fp, [sp]
     add fp, sp, #4
-    mov r4, r0 @store fp into r4
+    mov r4, r0 
 
     mov r0, #0
     bl time
     bl srand
     bl rand
 
-    mov r5, #0 @r5 counts number of cards
+    mov r5, #0 
 
-    initarray: @initializing array; move sp down [loop count] number of bits
+    initarray: 
         add r5, r5, #1
-        cmp r5, #14 @locks loop count to 13
+        cmp r5, #14
         beq dinitarray1
         sub sp, sp, #4
         mov r1, #0
@@ -72,7 +66,7 @@ shuffle:
     mov r0, r4
     bl fclose
 
-    add sp, sp, #48 @undoes initarray
+    add sp, sp, #48 
     add sp, sp, #4
     ldr fp, [sp]
     add sp, sp, #4
